@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cannect Apoio - Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+        }
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            border: 12px solid #333;
+            border-radius: 36px;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+        .notch {
+            width: 150px;
+            height: 24px;
+            background-color: #333;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 10;
+        }
+        .screen {
+            height: 100%;
+            overflow-y: auto;
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .input-field {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            width: 100%;
+            background-color: #f9f9f9;
+        }
+        .btn-primary {
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background-color: #e2e8f0;
+            color: #4a6fa5;
+            border: 1px solid #4a6fa5;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .nav-tab.active {
+            color: #4a6fa5;
+            border-bottom: 3px solid #4a6fa5;
+        }
+        .connection-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 12px;
+            background-color: white;
+        }
+        .settings-item {
+            padding: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Wireframe: Cannect Apoio</h1>
+    
+    <div class="flex flex-wrap justify-center gap-8 mb-8">
+        <button onclick="showScreen('cadastro')" class="px-4 py-2 bg-blue-600 text-white rounded">Tela 1: Cadastro</button>
+        <button onclick="showScreen('login')" class="px-4 py-2 bg-blue-600 text-white rounded">Tela 2: Login</button>
+        <button onclick="showScreen('boas-vindas')" class="px-4 py-2 bg-blue-600 text-white rounded">Tela 3: Boas Vindas</button>
+        <button onclick="showScreen('conexoes')" class="px-4 py-2 bg-blue-600 text-white rounded">Tela 4: Conexões</button>
+        <button onclick="showScreen('configuracoes')" class="px-4 py-2 bg-blue-600 text-white rounded">Tela 5: Configurações</button>
+    </div>
+
+    <div class="phone-frame shadow-2xl">
+        <div class="notch"></div>
+        
+        <!-- Tela 1: Cadastro -->
+        <div id="cadastro" class="screen p-6 pt-10 active">
+            <div class="flex justify-center mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-center mb-6">Criar Conta</h2>
+            <div class="mb-4">
+                <input type="text" placeholder="Nome completo" class="input-field">
+                <input type="email" placeholder="E-mail" class="input-field">
+                <input type="tel" placeholder="Telefone" class="input-field">
+                <div class="mb-4">
+                    <p class="mb-2 text-gray-600">Eu sou:</p>
+                    <div class="flex gap-2 mb-4">
+                        <button class="flex-1 btn-secondary">Voluntário</button>
+                        <button class="flex-1 btn-secondary">Preciso de ajuda</button>
+                    </div>
+                </div>
+                <input type="password" placeholder="Senha" class="input-field">
+                <input type="password" placeholder="Confirmar senha" class="input-field">
+            </div>
+            <button class="btn-primary mb-4" onclick="showScreen('boas-vindas')">Cadastrar</button>
+            <p class="text-center text-gray-600">Já tem uma conta? <a href="#" class="text-blue-600 font-semibold" onclick="showScreen('login')">Entrar</a></p>
+        </div>
+        
+        <!-- Tela 2: Login -->
+        <div id="login" class="screen p-6 pt-10">
+            <div class="flex justify-center mb-8">
+                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-center mb-6">Entrar</h2>
+            <div class="mb-4">
+                <input type="email" placeholder="E-mail" class="input-field">
+                <input type="password" placeholder="Senha" class="input-field">
+            </div>
+            <button class="btn-primary mb-4" onclick="showScreen('boas-vindas')">Entrar</button>
+            <p class="text-center text-gray-600 mb-4"><a href="#" class="text-blue-600">Esqueci minha senha</a></p>
+            <p class="text-center text-gray-600">Não tem uma conta? <a href="#" class="text-blue-600 font-semibold" onclick="showScreen('cadastro')">Cadastre-se</a></p>
+        </div>
+        
+        <!-- Tela 3: Boas Vindas -->
+        <div id="boas-vindas" class="screen p-6 pt-10">
+            <div class="h-full flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center mb-4">Bem-vindo ao Cannect Apoio!</h2>
+                    <p class="text-center text-gray-600 mb-8">Conectando quem precisa com quem quer ajudar</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Conecte-se</h3>
+                                <p class="text-sm text-gray-600">Encontre ajuda ou ofereça apoio</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 8v4l3 3"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Agende</h3>
+                                <p class="text-sm text-gray-600">Marque encontros e atividades</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Faça a diferença</h3>
+                                <p class="text-sm text-gray-600">Transforme vidas com pequenas ações</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary mt-8" onclick="showScreen('conexoes')">Começar</button>
+            </div>
+        </div>
+        
+        <!-- Tela 4: Conexões -->
+        <div id="conexoes" class="screen">
+            <div class="bg-white p-4 shadow-md">
+                <h2 class="text-xl font-bold">Minhas Conexões</h2>
+            </div>
+            
+            <div class="p-4">
+                <div class="flex mb-4">
+                    <div class="nav-tab active" onclick="switchTab(this, 'ativos')">Ativos</div>
+                    <div class="nav-tab" onclick="switchTab(this, 'pendentes')">Pendentes</div>
+                    <div class="nav-tab" onclick="switchTab(this, 'historico')">Histórico</div>
+                </div>
+                
+                <div id="ativos" class="tab-content">
+                    <div class="connection-card">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Maria Silva</h3>
+                                <p class="text-sm text-gray-600">Voluntária • 2km de distância</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">Disponível para ajudar com compras e transporte.</p>
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-secondary flex items-center justify-center text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                Ligar
+                            </button>
+                            <button class="flex-1 btn-primary flex items-center justify-center text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                Mensagem
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="connection-card">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">João Pereira</h3>
+                                <p class="text-sm text-gray-600">Precisa de ajuda • 1.5km de distância</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">Necessita assistência com tarefas domésticas.</p>
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-secondary flex items-center justify-center text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                Ligar
+                            </button>
+                            <button class="flex-1 btn-primary flex items-center justify-center text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                Mensagem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="pendentes" class="tab-content hidden">
+                    <div class="connection-card">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Ana Souza</h3>
+                                <p class="text-sm text-gray-600">Voluntária • 3km de distância</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">Disponível para companhia e leitura.</p>
+                        <div class="flex gap-2">
+                            <button class="flex-1 btn-secondary">Recusar</button>
+                            <button class="flex-1 btn-primary">Aceitar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="historico" class="tab-content hidden">
+                    <div class="connection-card opacity-70">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Carlos Mendes</h3>
+                                <p class="text-sm text-gray-600">Voluntário • Finalizado em 12/05</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-3">Ajudou com transporte médico.</p>
+                        <button class="btn-secondary">Ver detalhes</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Navigation -->
+            <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-3">
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span class="text-xs text-blue-600">Início</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="text-xs">Conexões</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span class="text-xs">Agenda</span>
+                </div>
+                <div class="flex flex-col items-center" onclick="showScreen('configuracoes')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span class="text-xs">Config.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tela 5: Configurações -->
+        <div id="configuracoes" class="screen">
+            <div class="bg-white p-4 shadow-md flex items-center">
+                <button class="mr-2" onclick="showScreen('conexoes')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <h2 class="text-xl font-bold">Configurações</h2>
+            </div>
+            
+            <div class="p-4">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-center font-bold mb-1">Roberto Santos</h3>
+                <p class="text-center text-gray-600 mb-6">Voluntário</p>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-6">
+                    <div class="settings-item">
+                        <span>Meu perfil</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="settings-item">
+                        <span>Preferências de notificação</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="settings-item">
+                        <span>Privacidade e segurança</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-6">
+                    <div class="settings-item">
+                        <span>Idioma</span>
+                        <div class="flex items-center">
+                            <span class="text-gray-600 mr-2">Português</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <span>Tema</span>
+                        <div class="flex items-center">
+                            <span class="text-gray-600 mr-2">Claro</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-6">
+                    <div class="settings-item">
+                        <span>Ajuda e suporte</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="settings-item">
+                        <span>Sobre o Cannect Apoio</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="settings-item">
+                        <span>Termos e políticas</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </div>
+                
+                <button class="btn-secondary text-red-600 border-red-600">Sair da conta</button>
+            </div>
+            
+            <!-- Bottom Navigation -->
+            <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around p-3">
+                <div class="flex flex-col items-center" onclick="showScreen('conexoes')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span class="text-xs">Início</span>
+                </div>
+                <div class="flex flex-col items-center" onclick="showScreen('conexoes')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="text-xs">Conexões</span>
+                </div>
+                <div class="flex flex-col items-center" onclick="showScreen('conexoes')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span class="text-xs">Agenda</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4a6fa5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span class="text-xs text-blue-600">Config.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show the selected screen
+            document.getElementById(screenId).classList.add('active');
+        }
+        
+        function switchTab(tab, tabContentId) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(t => {
+                t.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show the selected tab content
+            document.getElementById(tabContentId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
